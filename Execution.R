@@ -11,5 +11,5 @@ summary(result)$solution
 plot(result)
 
 # Resultado graficamente
-plot_image(summary(result)$solution[1,])
+plot_result(summary(result)$solution[1,])
 
