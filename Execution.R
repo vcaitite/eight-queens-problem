@@ -2,7 +2,10 @@
 library(GA)
 
 # algoritmo genetico
-result <- ga(type="permutation", fitness=eight_queens_fitness, lower=c(1,1,1,1,1,1,1,1), upper=c(8,8,8,8,8,8,8,8), popSize = 10, maxiter = 1000)
+n = 15
+lw <- seq(1,1, length.out=n)
+up <- seq(n,n, length.out=n)
+result <- ga(type="permutation", fitness=eight_queens_fitness, lower=lw, upper=up, popSize = 20, maxiter = 10000)
 
 # solucao
 summary(result)$solution
