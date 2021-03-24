@@ -9,20 +9,20 @@ perm([], []).
 perm(List, [H|Perm]) :- select(H, List, Rest), perm(Rest, Perm).
 
 % Change perm's vector to alter n-queens
-queen8(Q) :- perm([1,2,3,4,5,6,7,8], Q), test(Q, 1, [], []), !.
+queenN(Q) :- perm([1,2,3,4,5,6,7,8], Q), test(Q, 1, [], []), !.
 
-allQueen8(A) :- findall(Q, queen8(Q), A).
-countAllQueen8(C) :- allQueen8(A), length(A, C).
+allQueenN(A) :- findall(Q, queenN(Q), A).
+countAllQueenN(C) :- allQueenN(A), length(A, C).
 
 
 % Call for timing of all solutions
 %statistics(runtime,[Start|_]),
-%    countAllQueen8(C),
+%    countAllQueenN(C),
 %    statistics(runtime,[Stop|_]),
 %    Runtime is Stop - Start, write('Execution took '), write(Runtime), write(' ms. There are '), write(C), write(' solutions'), nl.
 
 % Call for timing of first solution
 %statistics(runtime,[Start|_]),
-%    queen8(C),
+%    queenN(C),
 %    statistics(runtime,[Stop|_]),
 %    Runtime is Stop - Start, write('Execution took '), write(Runtime), write(' ms. There are '), write(C), write(' solutions'), nl.
