@@ -2,10 +2,10 @@
 library(GA)
 
 # algoritmo genetico
-n = 15
+n = 10
 lw <- seq(1,1, length.out=n)
 up <- seq(n,n, length.out=n)
-result <- ga(type="permutation", fitness=eight_queens_fitness, lower=lw, upper=up, popSize = 20, maxiter = 10000)
+result <- ga(type="permutation", fitness=eight_queens_fitness, lower=lw, upper=up, popSize = 20, maxiter = 500)
 
 # solucao
 summary(result)$solution
@@ -14,5 +14,5 @@ summary(result)$solution
 plot(result)
 
 # Resultado graficamente
-plot_result(summary(result)$solution[1,])
+plot_result(summary(result)$solution[1,], n)
 
