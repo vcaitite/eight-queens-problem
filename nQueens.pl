@@ -9,7 +9,7 @@ perm([], []).
 perm(List, [H|Perm]) :- select(H, List, Rest), perm(Rest, Perm).
 
 % Change perm's vector to alter n-queens
-queenN(Q) :- perm([1,2,3,4,5,6,7,8], Q), test(Q, 1, [], []), !.
+queenN(Q) :- perm(__permList__, Q), test(Q, 1, [], []), !.
 
 allQueenN(A) :- findall(Q, queenN(Q), A).
 countAllQueenN(C) :- allQueenN(A), length(A, C).
