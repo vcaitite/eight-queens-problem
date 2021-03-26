@@ -1,18 +1,20 @@
 #install.packages("GA")
 library(GA)
+library(tictoc)
 
 # algoritmo genetico
-n = 10
+n = 15
 lw <- seq(1,1, length.out=n)
 up <- seq(n,n, length.out=n)
-result <- ga(type="permutation", fitness=eight_queens_fitness, lower=lw, upper=up, popSize = 20, maxiter = 500)
-
+tic("Runtime:")
+result <- ga(type="permutation", fitness=eight_queens_fitness, lower=lw, upper=up, maxFitness=0, monitor=FALSE, popSize = 20, maxiter = 10000)
+toc()
 # solucao
 summary(result)$solution
 
+# Descomentar para modo grafico
 # plot da evolucao
-plot(result)
-
+#plot(result)
 # Resultado graficamente
-plot_result(summary(result)$solution[1,], n)
+#plot_result(summary(result)$solution[1,], n)
 
